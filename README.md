@@ -23,38 +23,38 @@ smartEllipsis(text, maxLength);
 
 ### examples
 
-#### don't cut word in half
+it will not cut in half
 ```js
 smartEllipsis('hello world', 7) // 'hello...'
 ```
 
-#### removes extra . and space
+it will remove extra . and space
 ```js
 smartEllipsis('hello world. what\'s up?', 12) // 'hello word...'
 ```
 
 
-#### removes extra ,
+it will remove extra ,
 ```js
 smartEllipsis('hello world, what\'s up?', 11) // 'hello word...'
 ```
 
-#### removes extra \n
+it will remove extra \n
 ```js
 smartEllipsis('hello world\n what\'s up?', 11) // 'hello word...'
 ```
 
-#### removes extra \r\n
+it will remove extra \r\n
 ```js
 smartEllipsis('hello world\r\n what\'s up?', 11) // 'hello word...'
 ```
 
-#### removes extra ?
+it will remove extra ?
 ```js
 smartEllipsis('hello world? what\'s up?', 11) // 'hello word...'
 ```
 
-#### removes extra !
+it will remove !
 ```js
 smartEllipsis('hello world! what\'s up?', 11) // 'hello word...'
 ```
