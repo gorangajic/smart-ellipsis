@@ -1,6 +1,5 @@
 # smart-ellipsis
-cut text tail but smarter
-
+cut text and add tail but smarter
 
 ```js
 
