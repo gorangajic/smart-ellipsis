@@ -1,7 +1,7 @@
 module.exports = function(text, max) {
     var i = 0;
     if (text.length > max) {
-        text = text.split(' ').filter((word) => {
+        text = text.split(' ').filter(function (word) {
             i += word.length;
             if (i > max) {
                 return false;
