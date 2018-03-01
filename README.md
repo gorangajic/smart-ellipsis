@@ -1,37 +1,60 @@
 # smart-ellipsis
-cut text and add tail but smarter
+
+> cut text and add ellipsis/tail without quirks
+
+[![Build Status](https://semaphoreci.com/api/v1/gorangajic/smart-ellipsis/branches/master/badge.svg)](https://semaphoreci.com/gorangajic/smart-ellipsis)
+
+When using something like `substr` and adding `...` you get all kind of quirks and this module handle that quirks
+
+
+### install
+
+```
+npm install smart-ellipsis
+```
+
+### usage
 
 ```js
+const smartEllipsis = require('smart-ellipsis');
 
-const smartEllipsis = require('./');
+smartEllipsis(text, maxLength);
+```
+
+### examples
+
+#### don't cut word in half
+```js
+smartEllipsis('hello world', 7) // 'hello...'
+```
+
+#### removes extra . and space
+```js
+smartEllipsis('hello world. what\'s up?', 12) // 'hello word...'
+```
 
 
-it('should cut text at the end of word', () => {
-    expect(smartEllipsis('hello world', 7)).toBe('hello...');
-});
+#### removes extra ,
+```js
+smartEllipsis('hello world, what\'s up?', 11) // 'hello word...'
+```
 
-it('should remove extra . at the end of a sentence', () => {
-    expect(smartEllipsis('hello world. what\'s up?', 12)).toBe('hello world...');
-});
+#### removes extra \n
+```js
+smartEllipsis('hello world\n what\'s up?', 11) // 'hello word...'
+```
 
-it('should remove extra , at the end of a sentence', () => {
-    expect(smartEllipsis('hello world, what\'s up?', 12)).toBe('hello world...');
-});
+#### removes extra \r\n
+```js
+smartEllipsis('hello world\r\n what\'s up?', 11) // 'hello word...'
+```
 
-it('should remove extra \\n at the end of a sentence', () => {
-    expect(smartEllipsis('hello world\n what\'s up?', 12)).toBe('hello world...');
-});
+#### removes extra ?
+```js
+smartEllipsis('hello world? what\'s up?', 11) // 'hello word...'
+```
 
-it('should remove extra \\r\\n at the end of a sentence', () => {
-    expect(smartEllipsis('hello world\r\n what\'s up?', 12)).toBe('hello world...');
-});
-
-it('should remove extra ? at the end of a sentence', () => {
-    expect(smartEllipsis('hello world? what\'s up?', 12)).toBe('hello world...');
-});
-
-it('should remove extra ! at the end of a sentence', () => {
-    expect(smartEllipsis('hello world! what\'s up?', 12)).toBe('hello world...');
-});
-
+#### removes extra !
+```js
+smartEllipsis('hello world! what\'s up?', 11) // 'hello word...'
 ```
