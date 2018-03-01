@@ -23,7 +23,7 @@ smartEllipsis(text, maxLength);
 
 ### examples
 
-#### don't cut word in half
+it will not cut in half
 ```js
 smartEllipsis('hello world', 7) // 'hello...'
 ```
