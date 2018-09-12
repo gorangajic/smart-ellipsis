@@ -1,4 +1,4 @@
-module.exports = function(text, max) {
+module.exports = function(text, max, dots) {
     var i = 0;
     if (text.length > max) {
         text = text.split(' ').filter(function (word) {
@@ -10,7 +10,7 @@ module.exports = function(text, max) {
         }).join(' ');
         // remove , \n \r\n . ? ! from the end of the text
         text = text.replace(/(,|\n|\r\n|\.|\?|!)$/, '');
-        return text + '...';
+        return text + (typeof dots === 'undefined' ? '...' : dots);
     }
     return text;
 };

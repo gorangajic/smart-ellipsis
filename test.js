@@ -28,3 +28,7 @@ it('should remove extra ? at the end of a sentence', () => {
 it('should remove extra ! at the end of a sentence', () => {
     expect(smartEllipsis('hello world! what\'s up?', 12)).toBe('hello world...');
 });
+
+it('should make dots customizable', () => {
+    expect(smartEllipsis('hello world! what\'s up?', 12, '!!!')).toBe('hello world!!!');
+});
