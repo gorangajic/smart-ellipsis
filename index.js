@@ -1,16 +1,17 @@
-module.exports = function(text, max, dots) {
-    var i = 0;
-    if (text.length > max) {
-        text = text.split(' ').filter(function (word) {
-            i += word.length;
-            if (i > max) {
-                return false;
-            }
-            return true;
-        }).join(' ');
-        // remove , \n \r\n . ? ! from the end of the text
-        text = text.replace(/(,|\n|\r\n|\.|\?|!)$/, '');
-        return text + (typeof dots === 'undefined' ? '...' : dots);
+module.exports = function(text, max, _dots) {
+    if (text.length <= max) {
+        return text;
     }
-    return text;
+    var dots = _dots ? _dots : '...';
+    var i = dots.length;
+    text = text.split(' ').filter(function (word) {
+        i += word.length;
+        if (i > max) {
+            return false;
+        }
+        i += 1; // add a space sharacter after a word
+        return true;
+    }).join(' ').replace(/(,|\n|\r\n|\.|\?|!)$/, '');
+
+    return text + dots;
 };
