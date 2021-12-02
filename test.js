@@ -33,7 +33,7 @@ it('should make dots customizable', () => {
     expect(smartEllipsis('hello world! what\'s up?', 16, '!!!')).toBe('hello world!!!');
 });
 
-it('should do smoething', () => {
+it('should cut long text', () => {
     const text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies porta mi. Nullam at tempus magna, sit amet molestie urna. Curabitur sed dictum sapien. Nullam bibendum convallis hendrerit. Curabitur lobortis porta suscipit. Nullam ut nulla et mi bibendum interdum nec eget est. Sed euismod ex metus, ac tempor magna molestie id.';
 
     expect(smartEllipsis(text, 120, '...').length).toBeLessThanOrEqual(120);
